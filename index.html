@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Seu Gerente Digital — Estoque, Vendas, Caixa e Indicadores</title>
+    <meta
+      name="description"
+      content="Sistema completo para micro e pequenas empresas: controle de estoque, compras, vendas, caixa, precificação e dashboards. Licença promocional R$ 2.500 + suporte e melhorias R$ 200/mês."
+    />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Seu Gerente Digital — Controle de Estoque e Vendas com Caixa"
+    />
+    <meta
+      property="og:description"
+      content="Controle real para micro e pequenas empresas: estoque, compras, vendas, caixa, precificação, relatórios e dashboards."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: rgba(255, 255, 255, 0.06);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.9);
+        --muted: rgba(255, 255, 255, 0.7);
+        --brand: #ffd54a; /* CTA */
+        --brand2: #78dce8; /* detalhes */
+      }
+
+      body {
+        background:
+          radial-gradient(
+            1200px 700px at 20% 10%,
+            rgba(120, 220, 232, 0.18),
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 600px at 80% 20%,
+            rgba(255, 213, 74, 0.12),
+            transparent 55%
+          ),
+          linear-gradient(180deg, #070b13 0%, #0b1220 60%, #070b13 100%);
+        color: var(--text);
+      }
+      .navbar {
+        background: rgba(5, 10, 18, 0.55);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .brand-badge {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.45rem 0.7rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .hero {
+        padding: 5.5rem 0 3.5rem 0;
+      }
+      .glass {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 18px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      .soft {
+        color: var(--muted);
+      }
+      .btn-brand {
+        background: var(--brand);
+        border: none;
+        color: #111;
+        font-weight: 800;
+        border-radius: 12px;
+        padding: 0.85rem 1.05rem;
+      }
+      .btn-outline-light2 {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 0.85rem 1.05rem;
+      }
+      .btn-outline-light2:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+      }
+      .kpi {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.9rem;
+        height: 100%;
+      }
+      .kpi .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 213, 74, 0.12);
+        border: 1px solid rgba(255, 213, 74, 0.25);
+        color: var(--brand);
+        margin-bottom: 0.7rem;
+        font-size: 1.2rem;
+      }
+      .section {
+        padding: 3.5rem 0;
+      }
+      .section-title {
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+      .feature {
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.1rem;
+        height: 100%;
+      }
+      .feature .bi {
+        color: var(--brand2);
+        font-size: 1.25rem;
+      }
+      .divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.18),
+          transparent
+        );
+        margin: 2.5rem 0;
+      }
+      .price {
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.05)
+        );
+        padding: 1.4rem;
+      }
+      .price .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(120, 220, 232, 0.14);
+        border: 1px solid rgba(120, 220, 232, 0.25);
+        color: var(--brand2);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .faq .accordion-item {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 0.7rem;
+      }
+      .faq .accordion-button {
+        background: transparent;
+        color: var(--text);
+        font-weight: 800;
+      }
+      .faq .accordion-button:focus {
+        box-shadow: none;
+      }
+      .footer {
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+      }
+
+      /* Sticky CTA (mobile) */
+      .sticky-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        padding: 0.75rem;
+        background: rgba(5, 10, 18, 0.75);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .sticky-cta {
+          display: block;
+        }
+        .hero {
+          padding-top: 4.5rem;
+        }
+      }
+
+      /* Inputs */
+      .form-control,
+      .form-select {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: white;
+        border-radius: 12px;
+      }
+
+      /* dropdown aberto */
+      .form-select option {
+        color: #000;
+        background: #fff;
+      }
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .form-control:focus,
+      .form-select:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255, 213, 74, 0.12);
+        border-color: rgba(255, 213, 74, 0.35);
+      }
+      .small-note {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      section[id] {
+        scroll-margin-top: 84px;
+      }
+      .shot-card {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .shot-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      }
+      .shot-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        display: block;
+      }
+      .shot-meta {
+        padding: 0.85rem 0.9rem;
+      }
+      .shot-title {
+        font-weight: 800;
+        margin: 0;
+      }
+      .shot-desc {
+        margin: 0.15rem 0 0 0;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* modal */
+      .modal-content {
+        background: rgba(8, 26, 52, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+      }
+      .modal-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .modal-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#topo">
+          <i class="bi bi-box-seam me-2"></i>
+          Seu Gerente Digital
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#beneficios">Benefícios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#recursos">Recursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dashboards">Dashboards</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#oferta">Oferta</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          </ul>
+
+          <div class="ms-lg-3 mt-3 mt-lg-0 d-flex gap-2">
+            <a
+              id="btnWhatsTop"
+              class="btn btn-outline-light2"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/5531983761554?text=Olá!%20Quero%20ver%20uma%20demonstração%20do%20Seu%20Gerente%20Digital."
+            >
+              <i class="bi bi-whatsapp me-1"></i> WhatsApp
+            </a>
+            <a class="btn btn-brand" href="#lead">
+              <i class="bi bi-lightning-charge me-1"></i> Quero uma demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="topo" class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="brand-badge mb-3">
+              <i class="bi bi-shield-check"></i>
+              Controle real para micro e pequenas empresas
+              <span class="ms-2" style="color: rgba(255, 255, 255, 0.45)"
+                >• estoque • vendas • caixa • indicadores</span
+              >
+            </div>
+
+            <h1 class="display-5 fw-bold lh-sm">
+              Pare de “achar” onde está o lucro.
+              <span style="color: var(--brand)"
+                >Veja estoque, vendas e caixa em tempo real</span
+              >
+              — com precificação e indicadores prontos.
+            </h1>
+
+            <p class="lead soft mt-3">
+              O <strong>Seu Gerente Digital</strong> organiza sua operação
+              (compras, vendas e caixa) e entrega gestão (precificação, margem,
+              Pareto 80/20 e Curva ABC) sem planilhas paralelas.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-brand" href="#lead">
+                <i class="bi bi-play-circle me-1"></i> Ver demonstração /
+                proposta
+              </a>
+              <a class="btn btn-outline-light2" href="#oferta">
+                <i class="bi bi-tags me-1"></i> Ver oferta promocional
+              </a>
+            </div>
+
+            <div class="row g-3 mt-4">
+              <div class="col-md-4">
+                <div class="kpi">
+                  <div class="icon"><i class="bi bi-graph-up"></i></div>
+                  <div class="fw-bold">Indicadores em 1 clique</div>
+                  <div class="small-note">
+                    Ticket médio, margem, markup, Pareto 80/20, ABC (30 dias)
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="kpi">
+                  <div class="icon"><i class="bi bi-cash-coin"></i></div>
+                  <div class="fw-bold">Caixa integrado</div>
+                  <div class="small-note">
+                    Entradas/saídas, saldo e faturamento (hoje e mês)
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="kpi">
+                  <div class="icon"><i class="bi bi-boxes"></i></div>
+                  <div class="fw-bold">Estoque inteligente</div>
+                  <div class="small-note">
+                    Compras/vendas + consumo de kits + valor projetado
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HERO CARD -->
+          <div class="col-lg-5">
+            <div class="glass p-3 p-md-4">
+              <div
+                class="d-flex align-items-center justify-content-between mb-3"
+              >
+                <div class="fw-bold">
+                  <i class="bi bi-speedometer2 me-2"></i> Visão rápida do
+                  negócio
+                </div>
+                <span class="badge text-bg-warning text-dark">Tempo real</span>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="feature">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <span class="soft">Saldo em Caixa</span>
+                      <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                    <div class="fs-4 fw-bold mt-1">R$ 12.480</div>
+                    <div class="small-note">Atualizado agora</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="feature">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <span class="soft">Vendas Hoje</span>
+                      <i class="bi bi-bag-check"></i>
+                    </div>
+                    <div class="fs-4 fw-bold mt-1">R$ 3.120</div>
+                    <div class="small-note">Comparativo no dashboard</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="feature">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <span class="soft">Top Produtos (Pareto 80/20)</span>
+                      <i class="bi bi-star"></i>
+                    </div>
+                    <div class="mt-2">
+                      <div class="d-flex justify-content-between small-note">
+                        <span>Produto A</span><span>R$ 1.240</span>
+                      </div>
+                      <div class="d-flex justify-content-between small-note">
+                        <span>Produto B</span><span>R$ 980</span>
+                      </div>
+                      <div class="d-flex justify-content-between small-note">
+                        <span>Produto C</span><span>R$ 650</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="small-note mt-2">
+                    *Mock ilustrativo. Na demo, mostramos telas reais do
+                    sistema.
+                  </div>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="d-flex gap-2">
+                <a class="btn btn-brand w-100" href="#lead">
+                  <i class="bi bi-calendar2-check me-1"></i> Agendar
+                  apresentação
+                </a>
+                <a
+                  id="btnWhatsHero"
+                  class="btn btn-outline-light2"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://wa.me/5531983761554?text=Olá!%20Quero%20ver%20uma%20demonstração%20do%20Seu%20Gerente%20Digital."
+                >
+                  <i class="bi bi-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="section">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <h2 class="section-title">O que “vaza dinheiro” no varejo</h2>
+            <p class="soft mt-2">
+              Quando estoque, vendas e caixa não conversam, o resultado é
+              previsível: ruptura, compra errada, margem invisível e decisão no
+              “achismo”.
+            </p>
+
+            <div class="glass p-3 mt-3">
+              <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-x-circle text-warning fs-4"></i>
+                <div>
+                  <div class="fw-bold">Estoque não bate</div>
+                  <div class="small-note">
+                    Entradas e saídas manuais geram divergência e perdas.
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 align-items-start mt-3">
+                <i class="bi bi-x-circle text-warning fs-4"></i>
+                <div>
+                  <div class="fw-bold">Caixa confuso</div>
+                  <div class="small-note">
+                    Sem padrão de entradas/saídas, o saldo fica “no escuro”.
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 align-items-start mt-3">
+                <i class="bi bi-x-circle text-warning fs-4"></i>
+                <div>
+                  <div class="fw-bold">Preço sem método</div>
+                  <div class="small-note">
+                    Sem markup/margem por classe, o lucro some mesmo com venda
+                    alta.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <h2 class="section-title">
+              A solução: operação organizada + gestão clara
+            </h2>
+            <p class="soft mt-2">
+              Com o <strong>Seu Gerente Digital</strong> você registra compras,
+              vende, movimenta caixa — e o sistema entrega dashboards e
+              relatórios automaticamente.
+            </p>
+
+            <div class="row g-3 mt-1">
+              <div class="col-md-6">
+                <div class="feature">
+                  <div class="d-flex gap-2 align-items-center">
+                    <i class="bi bi-check2-circle"></i>
+                    <div class="fw-bold">Menos erro e retrabalho</div>
+                  </div>
+                  <div class="small-note mt-2">
+                    Estoque calculado por compras/vendas + consumo de kit.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature">
+                  <div class="d-flex gap-2 align-items-center">
+                    <i class="bi bi-check2-circle"></i>
+                    <div class="fw-bold">Lucro visível</div>
+                  </div>
+                  <div class="small-note mt-2">
+                    Margem, markup (30 dias) e curvas (Pareto/ABC) no dashboard.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature">
+                  <div class="d-flex gap-2 align-items-center">
+                    <i class="bi bi-check2-circle"></i>
+                    <div class="fw-bold">Precificação com lógica</div>
+                  </div>
+                  <div class="small-note mt-2">
+                    Markup global + por classe, com taxas de cartão (1–12x).
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature">
+                  <div class="d-flex gap-2 align-items-center">
+                    <i class="bi bi-check2-circle"></i>
+                    <div class="fw-bold">Segurança e auditoria</div>
+                  </div>
+                  <div class="small-note mt-2">
+                    Login, sessão persistente, logs e regras por perfil
+                    (admin/operador).
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-brand" href="#lead"
+                ><i class="bi bi-lightning-charge me-1"></i> Quero uma demo</a
+              >
+              <a class="btn btn-outline-light2" href="#recursos"
+                ><i class="bi bi-list-check me-1"></i> Ver recursos</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section id="recursos" class="section">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title">Recursos completos para o dia a dia</h2>
+          <p class="soft mb-0">
+            Cadastros, operação, estoque, financeiro e gestão em um só lugar.
+          </p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-lg-3 col-md-6">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-ui-checks-grid me-2"></i>Cadastros
+              </div>
+              <ul class="small-note mt-2 mb-0">
+                <li>Produtos, marcas, fornecedores</li>
+                <li>Unidades de medida</li>
+                <li>Clientes</li>
+                <li>Usuários (admin/operador)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-receipt-cutoff me-2"></i>Operações
+              </div>
+              <ul class="small-note mt-2 mb-0">
+                <li>Compras e vendas</li>
+                <li>Caixa (entradas/saídas)</li>
+                <li>Cancelamento (admin)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature">
+              <div class="fw-bold"><i class="bi bi-boxes me-2"></i>Estoque</div>
+              <ul class="small-note mt-2 mb-0">
+                <li>Controle por compras/vendas</li>
+                <li>Consumo de kit</li>
+                <li>Relatórios e valor projetado</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-currency-dollar me-2"></i>Financeiro
+              </div>
+              <ul class="small-note mt-2 mb-0">
+                <li>Contas a pagar</li>
+                <li>Taxas de cartão (1–12x)</li>
+                <li>Precificação (markup por classe)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-clipboard-data me-2"></i>Relatórios
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Logs de ações, relatórios de estoque e exportação em
+                PDF/CSV/JSON.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-shield-lock me-2"></i>Segurança
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Login, sessão persistente, restrição de exclusão e regras por
+                perfil.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-rocket-takeoff me-2"></i>Foco em resultado
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Menos perda, mais previsibilidade e decisão baseada em dados.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARDS -->
+    <section id="dashboards" class="section">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="section-title">Dashboards que mostram o que importa</h2>
+            <p class="soft mt-2">
+              Indicadores prontos para dono/gerência tomarem decisão sem
+              “chute”:
+            </p>
+
+            <div class="row g-2 mt-3">
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Saldo de caixa
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Vendas hoje e mensal
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Ticket médio
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Estoque projetado
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Pareto 80/20
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature"><i class="bi bi-dot"></i> Curva ABC</div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Margem e markup (30 dias)
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature">
+                  <i class="bi bi-dot"></i> Exportação PDF/CSV/JSON
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-brand" href="#lead"
+                ><i class="bi bi-play-circle me-1"></i> Ver demo</a
+              >
+              <a class="btn btn-outline-light2" href="#oferta"
+                ><i class="bi bi-tags me-1"></i> Ver valores</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="glass p-3 p-md-4">
+              <div class="fw-bold mb-2">
+                <i class="bi bi-image me-2"></i>Coloque prints reais aqui
+              </div>
+              <p class="small-note mb-3">
+                Troque os blocos abaixo por imagens do seu sistema (dashboard,
+                vendas, estoque, caixa). Se você me mandar 4 prints, eu te
+                devolvo essa seção já pronta com as imagens.
+              </p>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div
+                    class="shot-card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#shotModal"
+                    data-title="Dashboard (Indicadores)"
+                    data-img="assets/dashboard.png"
+                  >
+                    <img
+                      src="assets/dashboard.png"
+                      alt="Dashboard - Seu Gerente Digital"
+                    />
+                    <div class="shot-meta">
+                      <p class="shot-title">Dashboard</p>
+                      <p class="shot-desc">
+                        Saldo, faturamento, ticket médio, Pareto 80/20, ABC,
+                        margem e markup.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div
+                    class="shot-card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#shotModal"
+                    data-title="Estoque em tempo real"
+                    data-img="assets/estoque.png"
+                  >
+                    <img
+                      src="assets/estoque.png"
+                      alt="Estoque em tempo real - Seu Gerente Digital"
+                    />
+                    <div class="shot-meta">
+                      <p class="shot-title">Estoque (tempo real)</p>
+                      <p class="shot-desc">
+                        Entradas/saídas, saldo por SKU, valor custo e valor
+                        projetado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div
+                    class="shot-card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#shotModal"
+                    data-title="Contas a pagar"
+                    data-img="assets/contas-a-pagar.png"
+                  >
+                    <img
+                      src="assets/contas-a-pagar.png"
+                      alt="Contas a pagar - Seu Gerente Digital"
+                    />
+                    <div class="shot-meta">
+                      <p class="shot-title">Contas a pagar</p>
+                      <p class="shot-desc">
+                        Recorrentes, pagamentos, status (pago/pendente) e ações
+                        rápidas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div
+                    class="shot-card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#shotModal"
+                    data-title="DRE (Demonstrativo de Resultado)"
+                    data-img="assets/dre.png"
+                  >
+                    <img src="assets/dre.png" alt="DRE - Seu Gerente Digital" />
+                    <div class="shot-meta">
+                      <p class="shot-title">DRE</p>
+                      <p class="shot-desc">
+                        Resultado do período, CMV, despesas, taxas e relação
+                        Caixa × DRE.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="small-note mt-3">
+                *Telas reais do Seu Gerente Digital (exemplo). Layout e cores
+                podem variar conforme a configuração do cliente.
+              </p>
+
+              <div class="small-note mt-3">
+                Dica: prints reais + um mini vídeo (30–60s) costumam dobrar a
+                conversão.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIANÇA -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title">Feito para operar com segurança</h2>
+          <p class="soft mb-0">
+            Permissões, logs e restrições para manter a base consistente.
+          </p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-person-badge me-2"></i>Perfis
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Admin e Operador com permissões diferentes (ex.: cancelamento só
+                admin).
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-journal-text me-2"></i>Logs de ações
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Rastreie alterações (cadastros, vendas, cancelamentos,
+                exclusões).
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="feature">
+              <div class="fw-bold">
+                <i class="bi bi-shield-exclamation me-2"></i>Proteções
+              </div>
+              <p class="small-note mt-2 mb-0">
+                Restrição de exclusão para manter integridade
+                (produto/fornecedor/marca/unidade).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" class="section">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-6">
+            <h2 class="section-title">Oferta promocional</h2>
+            <p class="soft mt-2">
+              Para micro e pequenas empresas que querem controle, rapidez e
+              evolução contínua.
+            </p>
+
+            <div class="price mt-3">
+              <span class="tag"><i class="bi bi-tags"></i> Promoção</span>
+              <h3 class="fw-bold mt-3 mb-2">Licença do sistema</h3>
+              <div class="display-6 fw-bold" style="color: var(--brand)">
+                R$ 2.500
+              </div>
+              <div class="soft">pagamento único</div>
+
+              <div class="divider"></div>
+
+              <h4 class="fw-bold mb-2">Suporte e melhorias</h4>
+              <div class="fs-2 fw-bold">
+                R$ 200<span class="fs-6">/mês</span>
+              </div>
+              <div class="soft">atualizações + suporte + evolução</div>
+
+              <ul class="small-note mt-3 mb-0">
+                <li>Suporte técnico (dúvidas e ajustes de uso)</li>
+                <li>Atualizações e melhorias contínuas</li>
+                <li>Correções e manutenção</li>
+                <li>Roadmap de evolução (com base no uso dos clientes)</li>
+              </ul>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-brand" href="#lead"
+                ><i class="bi bi-check2-square me-1"></i> Quero fechar essa
+                oferta</a
+              >
+              <a
+                id="btnWhatsOffer"
+                class="btn btn-outline-light2"
+                target="_blank"
+                rel="noopener"
+                href="https://wa.me/5531983761554?text=Olá!%20Quero%20a%20oferta%20do%20Seu%20Gerente%20Digital%20(licença%20R$%202.500%20+%20R$%20200/mês).%20Podemos%20agendar%20uma%20apresentação%3F"
+              >
+                <i class="bi bi-whatsapp me-1"></i> Falar no WhatsApp
+              </a>
+            </div>
+
+            <p class="small-note mt-3">
+              *Você pode ajustar oferta por número de usuários e quantidade de
+              lojas.
+            </p>
+          </div>
+
+          <!-- FORM -->
+          <div class="col-lg-6">
+            <div id="lead" class="glass p-3 p-md-4 h-100">
+              <div
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2"
+              >
+                <h3 class="fw-bold mb-0">
+                  <i class="bi bi-envelope-paper me-2"></i>Receba a demo +
+                  proposta
+                </h3>
+                <span
+                  class="badge text-bg-dark"
+                  style="border: 1px solid rgba(255, 255, 255, 0.12)"
+                  >Responde rápido</span
+                >
+              </div>
+
+              <p class="soft mt-2">
+                Preencha abaixo para eu te enviar apresentação, proposta e
+                passos de implantação.
+              </p>
+
+              <!-- FormSubmit -->
+              <form
+                id="leadForm"
+                action="https://formsubmit.co/alexandrehmrosas@gmail.com"
+                method="POST"
+                class="mt-3"
+                novalidate
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="Novo lead — Seu Gerente Digital"
+                />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" id="form_next_url" value="">
+
+                <!-- Tracking -->
+                <input type="hidden" name="utm_source" id="utm_source" />
+                <input type="hidden" name="utm_medium" id="utm_medium" />
+                <input type="hidden" name="utm_campaign" id="utm_campaign" />
+                <input type="hidden" name="utm_content" id="utm_content" />
+                <input type="hidden" name="utm_term" id="utm_term" />
+                <input type="hidden" name="referrer" id="referrer" />
+                <input type="hidden" name="page_url" id="page_url" />
+                <input type="hidden" name="timestamp" id="timestamp" />
+
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label small-note">Seu nome</label>
+                    <input
+                      class="form-control"
+                      name="nome"
+                      id="nome"
+                      placeholder="Ex.: Ana / João"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe seu nome.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small-note">WhatsApp</label>
+                    <input
+                      class="form-control"
+                      name="whatsapp"
+                      id="whatsapp"
+                      placeholder="(31) 9xxxx-xxxx"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Informe um WhatsApp válido.
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <label class="form-label small-note">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="voce@empresa.com"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Informe um e-mail válido.
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small-note">Segmento</label>
+                    <select
+                      class="form-select"
+                      name="segmento"
+                      id="segmento"
+                      required
+                    >
+                      <option value="" selected>Selecione…</option>
+                      <option>Varejo em geral</option>
+                      <option>Moda / Acessórios</option>
+                      <option>Cosméticos / Perfumaria</option>
+                      <option>Mercado / Mercearia</option>
+                      <option>Papelaria</option>
+                      <option>Outro</option>
+                    </select>
+                    <div class="invalid-feedback">Selecione um segmento.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small-note">Tamanho</label>
+                    <select
+                      class="form-select"
+                      name="tamanho"
+                      id="tamanho"
+                      required
+                    >
+                      <option value="" selected>Selecione…</option>
+                      <option>1 loja / 1–3 usuários</option>
+                      <option>1 loja / 4–8 usuários</option>
+                      <option>2–3 lojas / até 10 usuários</option>
+                      <option>+3 lojas / +10 usuários</option>
+                    </select>
+                    <div class="invalid-feedback">Selecione o tamanho.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small-note"
+                      >O que você quer melhorar primeiro?</label
+                    >
+                    <textarea
+                      class="form-control"
+                      name="principal_dor"
+                      id="dor"
+                      rows="3"
+                      placeholder="Ex.: estoque não bate, preço sem margem, caixa confuso, relatórios…"
+                    ></textarea>
+                  </div>
+
+                  <div class="col-12 mt-2">
+                    <button class="btn btn-brand w-100" type="submit">
+                      <i class="bi bi-send me-1"></i> Quero receber a demo e
+                      proposta
+                    </button>
+                    <div class="small-note mt-2">
+                      Ao enviar, você concorda em receber contato por
+                      WhatsApp/e-mail para demonstração e proposta.
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <div class="divider"></div>
+
+              <div class="row g-2">
+                <div class="col-sm-6">
+                  <div class="feature">
+                    <div class="fw-bold">
+                      <i class="bi bi-clock me-2"></i>Implantação
+                    </div>
+                    <div class="small-note mt-1">
+                      Configuração inicial + treinamento básico.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="feature">
+                    <div class="fw-bold">
+                      <i class="bi bi-arrow-repeat me-2"></i>Melhorias
+                    </div>
+                    <div class="small-note mt-1">
+                      Evolução contínua (R$ 200/mês).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title">Perguntas frequentes</h2>
+          <p class="soft mb-0">
+            Respostas objetivas para facilitar sua decisão.
+          </p>
+        </div>
+
+        <div class="accordion" id="accordionFAQ">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq1"
+              >
+                Serve para varejo pequeno mesmo?
+              </button>
+            </h2>
+            <div
+              id="faq1"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body small-note">
+                Sim. O Seu Gerente Digital foi pensado para micro e pequenas
+                empresas que precisam de controle simples e eficiente: compras,
+                vendas, caixa, precificação e dashboards sem planilhas.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq2"
+              >
+                O que inclui a licença de R$ 2.500?
+              </button>
+            </h2>
+            <div
+              id="faq2"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body small-note">
+                Licença do sistema + implantação inicial (configuração base e
+                treinamento). Ajustes/novas demandas entram no plano de
+                melhorias (R$ 200/mês) ou sob orçamento, conforme o caso.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq3"
+              >
+                O suporte de R$ 200/mês é obrigatório?
+              </button>
+            </h2>
+            <div
+              id="faq3"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body small-note">
+                Não é “obrigatório”, mas é o que garante atualizações, correções
+                e evolução contínua. Para micro e pequenas empresas, normalmente
+                é o melhor custo-benefício para manter o sistema sempre rodando
+                bem.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq4"
+              >
+                Dá para exportar relatórios?
+              </button>
+            </h2>
+            <div
+              id="faq4"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body small-note">
+                Sim: exportação em PDF/CSV/JSON e relatórios de estoque e logs,
+                conforme o módulo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a class="btn btn-brand" href="#lead"
+            ><i class="bi bi-lightning-charge me-1"></i> Quero a demo</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div>
+            <div class="fw-bold">Seu Gerente Digital</div>
+            <div class="small-note">
+              Controle de estoque e vendas com caixa, precificação e
+              indicadores.
+            </div>
+          </div>
+          <div class="small-note">
+            © <span id="year"></span> — Alexandre Rosas.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky CTA (mobile) -->
+    <div class="sticky-cta">
+      <div class="container d-flex gap-2">
+        <a class="btn btn-brand w-100" href="#lead"
+          ><i class="bi bi-send me-1"></i> Pedir proposta</a
+        >
+        <a
+          id="btnWhatsSticky"
+          class="btn btn-outline-light2"
+          target="_blank"
+          rel="noopener"
+          href="https://wa.me/5531983761554?text=Olá!%20Quero%20ver%20uma%20demonstração%20do%20Seu%20Gerente%20Digital."
+        >
+          <i class="bi bi-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Modal de Screenshot -->
+    <div class="modal fade" id="shotModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="shotModalTitle">Preview</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              id="shotModalImg"
+              src=""
+              alt="Screenshot"
+              class="img-fluid rounded-3 border"
+              style="border-color: rgba(255, 255, 255, 0.12) !important"
+            />
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-brand" href="#lead" data-bs-dismiss="modal">
+              <i class="bi bi-send me-1"></i> Quero a demo e proposta
+            </a>
+            <button class="btn btn-outline-light2" data-bs-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // FormSubmit: redirect após envio deve usar a mesma origem da página (funciona em dev e produção)
+      const nextInput = document.getElementById("form_next_url");
+      if (nextInput) {
+        const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, "") || window.location.origin;
+        nextInput.value = base + (base.endsWith("/") ? "" : "/") + "obrigado.html";
+      }
+
+      // Helper para setar valores em inputs hidden
+      const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val || "";
+      };
+
+      // Captura UTM + referrer + URL + timestamp
+      const params = new URLSearchParams(window.location.search);
+      setVal("utm_source", params.get("utm_source"));
+      setVal("utm_medium", params.get("utm_medium"));
+      setVal("utm_campaign", params.get("utm_campaign"));
+      setVal("utm_content", params.get("utm_content"));
+      setVal("utm_term", params.get("utm_term"));
+      setVal("referrer", document.referrer || "direct");
+      setVal("page_url", window.location.href);
+      setVal("timestamp", new Date().toISOString());
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Validação do formulário (sem quebrar o POST)
+      const form = document.getElementById("leadForm");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          const nome = document.getElementById("nome");
+          const email = document.getElementById("email");
+          const whatsapp = document.getElementById("whatsapp");
+          const segmento = document.getElementById("segmento");
+          const tamanho = document.getElementById("tamanho");
+
+          const whatsappOk =
+            (whatsapp.value || "").replace(/\D/g, "").length >= 10;
+          const emailOk =
+            email.value.includes("@") && email.value.includes(".");
+          const nomeOk = (nome.value || "").trim().length >= 2;
+
+          if (
+            !nomeOk ||
+            !emailOk ||
+            !whatsappOk ||
+            !segmento.value ||
+            !tamanho.value
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!nomeOk) nome.classList.add("is-invalid");
+            else nome.classList.remove("is-invalid");
+            if (!emailOk) email.classList.add("is-invalid");
+            else email.classList.remove("is-invalid");
+            if (!whatsappOk) whatsapp.classList.add("is-invalid");
+            else whatsapp.classList.remove("is-invalid");
+            if (!segmento.value) segmento.classList.add("is-invalid");
+            else segmento.classList.remove("is-invalid");
+            if (!tamanho.value) tamanho.classList.add("is-invalid");
+            else tamanho.classList.remove("is-invalid");
+          }
+          // Se estiver tudo OK, NÃO faz preventDefault -> deixa o POST acontecer
+        });
+      }
+
+      // Modal screenshots
+      const shotModal = document.getElementById("shotModal");
+      if (shotModal) {
+        shotModal.addEventListener("show.bs.modal", function (event) {
+          const card = event.relatedTarget;
+          const title = card.getAttribute("data-title");
+          const img = card.getAttribute("data-img");
+
+          document.getElementById("shotModalTitle").textContent = title;
+          const modalImg = document.getElementById("shotModalImg");
+          modalImg.src = img;
+          modalImg.alt = title;
+        });
+      }
+    </script>
+  </body>
+</html>
