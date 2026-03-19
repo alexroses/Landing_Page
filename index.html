@@ -87,7 +87,12 @@
       }
 
       .text-gradient {
-        background: linear-gradient(105deg, var(--neon) 0%, var(--cyan) 50%, var(--purple) 100%);
+        background: linear-gradient(
+          105deg,
+          var(--neon) 0%,
+          var(--cyan) 50%,
+          var(--purple) 100%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -102,14 +107,26 @@
 
       .bg-hero {
         background:
-          radial-gradient(ellipse 900px 500px at 80% 0%, rgba(124, 58, 237, 0.35) 0%, transparent 55%),
-          radial-gradient(ellipse 700px 400px at 10% 30%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+          radial-gradient(
+            ellipse 900px 500px at 80% 0%,
+            rgba(124, 58, 237, 0.35) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 700px 400px at 10% 30%,
+            rgba(6, 182, 212, 0.12) 0%,
+            transparent 50%
+          ),
           linear-gradient(165deg, #0f172a 0%, #1e1b4b 45%, #0f172a 100%);
         color: #e2e8f0;
       }
       .bg-dark-band {
         background:
-          radial-gradient(ellipse 800px 400px at 50% 0%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
+          radial-gradient(
+            ellipse 800px 400px at 50% 0%,
+            rgba(124, 58, 237, 0.25) 0%,
+            transparent 50%
+          ),
           var(--navy);
         color: #e2e8f0;
       }
@@ -170,7 +187,9 @@
         border-radius: 14px;
         padding: 0.95rem 1.5rem;
         box-shadow: 0 8px 28px rgba(34, 197, 94, 0.35);
-        transition: transform 0.15s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.2s ease;
       }
       .btn-cta:hover {
         transform: translateY(-2px);
@@ -256,7 +275,9 @@
         padding: 1.35rem 1.5rem;
         height: 100%;
         box-shadow: var(--shadow-sm);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .card-pain:hover,
       .card-benefit:hover {
@@ -310,7 +331,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.12));
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.12),
+          rgba(6, 182, 212, 0.12)
+        );
         color: var(--purple);
         font-size: 1.35rem;
         margin-bottom: 1rem;
@@ -323,7 +348,9 @@
         background: rgba(255, 255, 255, 0.04);
         overflow: hidden;
         cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .shot-card:hover {
         transform: translateY(-4px);
@@ -420,7 +447,12 @@
 
       .divider {
         height: 1px;
-        background: linear-gradient(90deg, transparent, var(--stroke), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--stroke),
+          transparent
+        );
         margin: 2rem 0;
       }
 
@@ -542,7 +574,12 @@
       }
 
       .cta-final {
-        background: linear-gradient(135deg, #1e1b4b 0%, var(--navy) 50%, #0f172a 100%);
+        background: linear-gradient(
+          135deg,
+          #1e1b4b 0%,
+          var(--navy) 50%,
+          #0f172a 100%
+        );
         border-top: 1px solid rgba(255, 255, 255, 0.06);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         color: #e2e8f0;
@@ -558,8 +595,16 @@
         <a
           class="navbar-brand fw-bold d-flex align-items-center gap-2"
           href="https://seugerentedigital.com"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <img src="assets/favicon.jpg" alt="Logo" width="32" height="32" class="rounded-2" />
+          <img
+            src="assets/favicon.jpg"
+            alt="Logo"
+            width="32"
+            height="32"
+            class="rounded-2"
+          />
           <span>Seu Gerente Digital</span>
         </a>
         <button
@@ -618,7 +663,9 @@
 
             <h1 class="headline-xl mb-4">
               Transforme a gestão do seu negócio com
-              <span class="text-gradient">controle, clareza e profissionalismo</span>
+              <span class="text-gradient"
+                >controle, clareza e profissionalismo</span
+              >
             </h1>
 
             <p class="lead soft-on-dark mb-2">
@@ -630,7 +677,10 @@
               <a class="btn btn-cta btn-lg px-4" href="#lead">
                 <i class="bi bi-arrow-right-circle me-2"></i>Quero saber mais
               </a>
-              <a class="btn btn-outline-light2 btn-lg px-4" href="#como-funciona">
+              <a
+                class="btn btn-outline-light2 btn-lg px-4"
+                href="#como-funciona"
+              >
                 <i class="bi bi-play-btn me-2"></i>Ver como funciona
               </a>
             </div>
@@ -641,28 +691,42 @@
                 data-bs-toggle="modal"
                 data-bs-target="#videoModal"
               >
-                <i class="bi bi-camera-video me-1"></i>Assistir demonstração em vídeo
+                <i class="bi bi-camera-video me-1"></i>Assistir demonstração em
+                vídeo
               </button>
             </div>
 
             <p class="mt-5 mb-0 fw-semibold" style="color: #a5b4fc">
-              <i class="bi bi-check2-all me-2 text-success"></i>Ideal para micro,
-              pequenas e médias empresas
+              <i class="bi bi-check2-all me-2 text-success"></i>Ideal para
+              micro, pequenas e médias empresas
             </p>
           </div>
 
           <div class="col-lg-6">
             <div class="glass p-3 p-md-4">
-              <div class="d-flex align-items-center justify-content-between mb-3">
+              <div
+                class="d-flex align-items-center justify-content-between mb-3"
+              >
                 <div class="fw-bold text-white">
-                  <i class="bi bi-speedometer2 me-2 text-info"></i>Visão do negócio
+                  <i class="bi bi-speedometer2 me-2 text-info"></i>Visão do
+                  negócio
                 </div>
-                <span class="badge rounded-pill px-3 py-2" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4)">Tempo real</span>
+                <span
+                  class="badge rounded-pill px-3 py-2"
+                  style="
+                    background: rgba(34, 197, 94, 0.2);
+                    color: #4ade80;
+                    border: 1px solid rgba(34, 197, 94, 0.4);
+                  "
+                  >Tempo real</span
+                >
               </div>
               <div class="row g-2">
                 <div class="col-6">
                   <div class="mock-pill">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
                       <span class="soft-on-dark small">Saldo em caixa</span>
                       <i class="bi bi-arrow-up-right text-success"></i>
                     </div>
@@ -671,7 +735,9 @@
                 </div>
                 <div class="col-6">
                   <div class="mock-pill">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
                       <span class="soft-on-dark small">Vendas hoje</span>
                       <i class="bi bi-bag-check text-info"></i>
                     </div>
@@ -681,18 +747,38 @@
                 <div class="col-12">
                   <div class="mock-pill">
                     <div class="d-flex justify-content-between">
-                      <span class="soft-on-dark small">Top produtos (Pareto)</span>
+                      <span class="soft-on-dark small"
+                        >Top produtos (Pareto)</span
+                      >
                       <i class="bi bi-star-fill text-warning"></i>
                     </div>
                     <div class="mt-2 small soft-on-dark">
-                      <div class="d-flex justify-content-between"><span>Produto A</span><span class="text-white">R$ 1.240</span></div>
-                      <div class="d-flex justify-content-between"><span>Produto B</span><span class="text-white">R$ 980</span></div>
+                      <div class="d-flex justify-content-between">
+                        <span>Produto A</span
+                        ><span class="text-white">R$ 1.240</span>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <span>Produto B</span
+                        ><span class="text-white">R$ 980</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <p class="small soft-on-dark mt-3 mb-0">*Ilustrativo — na demo mostramos telas reais.</p>
-              <div class="divider" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)"></div>
+              <p class="small soft-on-dark mt-3 mb-0">
+                *Ilustrativo — na demo mostramos telas reais.
+              </p>
+              <div
+                class="divider"
+                style="
+                  background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.15),
+                    transparent
+                  );
+                "
+              ></div>
               <div class="d-flex gap-2">
                 <a class="btn btn-cta flex-grow-1" href="#lead">
                   <i class="bi bi-calendar2-check me-1"></i>Agendar apresentação
@@ -719,9 +805,12 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10 text-center mb-5">
-            <h2 class="section-title">Sua empresa vive algum destes problemas?</h2>
+            <h2 class="section-title">
+              Sua empresa vive algum destes problemas?
+            </h2>
             <p class="soft lead mb-0">
-              Sua empresa não precisa continuar refém de planilhas bagunçadas, anotações soltas e decisões no escuro.
+              Sua empresa não precisa continuar refém de planilhas bagunçadas,
+              anotações soltas e decisões no escuro.
             </p>
           </div>
         </div>
@@ -730,47 +819,60 @@
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Estoque não bate</div>
-              <p class="small-note mb-0 mt-2">Entradas e saídas soltas geram divergência e perdas.</p>
+              <p class="small-note mb-0 mt-2">
+                Entradas e saídas soltas geram divergência e perdas.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Caixa confuso</div>
-              <p class="small-note mb-0 mt-2">Sem padrão, o saldo fica “no escuro”.</p>
+              <p class="small-note mb-0 mt-2">
+                Sem padrão, o saldo fica “no escuro”.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Contas a pagar e receber desorganizadas</div>
-              <p class="small-note mb-0 mt-2">Vencimentos e status espalhados em papéis e planilhas.</p>
+              <p class="small-note mb-0 mt-2">
+                Vencimentos e status espalhados em papéis e planilhas.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Lucro que ninguém explica</div>
-              <p class="small-note mb-0 mt-2">Margem invisível mesmo com faturamento alto.</p>
+              <p class="small-note mb-0 mt-2">
+                Margem invisível mesmo com faturamento alto.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Tudo em planilhas e cadernos</div>
-              <p class="small-note mb-0 mt-2">Informação espalhada — ninguém vê o quadro completo.</p>
+              <p class="small-note mb-0 mt-2">
+                Informação espalhada — ninguém vê o quadro completo.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-pain">
               <i class="bi bi-x-octagon-fill d-block mb-2"></i>
               <div class="fw-bold">Decisões no “achismo”</div>
-              <p class="small-note mb-0 mt-2">Sem números confiáveis na hora de comprar ou precificar.</p>
+              <p class="small-note mb-0 mt-2">
+                Sem números confiáveis na hora de comprar ou precificar.
+              </p>
             </div>
           </div>
         </div>
         <p class="closing-line mx-auto" style="max-width: 52rem">
-          O problema não é falta de esforço. É falta de um sistema que organize o negócio de verdade.
+          O problema não é falta de esforço. É falta de um sistema que organize
+          o negócio de verdade.
         </p>
       </div>
     </section>
@@ -779,9 +881,12 @@
     <section id="transformacao" class="section bg-soft">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title">De um negócio desorganizado para uma gestão profissional</h2>
+          <h2 class="section-title">
+            De um negócio desorganizado para uma gestão profissional
+          </h2>
           <p class="soft lead mb-0">
-            Centralize a operação em um só lugar e tenha visão real do que está acontecendo.
+            Centralize a operação em um só lugar e tenha visão real do que está
+            acontecendo.
           </p>
         </div>
         <div class="row g-4">
@@ -811,7 +916,9 @@
           </div>
         </div>
         <div class="text-center mt-5">
-          <a class="btn btn-cta btn-lg px-4" href="#demo"><i class="bi bi-eye me-2"></i>Ver o sistema em ação</a>
+          <a class="btn btn-cta btn-lg px-4" href="#demo"
+            ><i class="bi bi-eye me-2"></i>Ver o sistema em ação</a
+          >
         </div>
       </div>
     </section>
@@ -828,42 +935,57 @@
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-boxes"></i></div>
               <h3 class="h5 fw-bold">Estoque inteligente</h3>
-              <p class="small-note mb-0">Acompanhe entradas, saídas e posição atual — kits e projeções incluídos.</p>
+              <p class="small-note mb-0">
+                Acompanhe entradas, saídas e posição atual — kits e projeções
+                incluídos.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-cart-check"></i></div>
               <h3 class="h5 fw-bold">Vendas organizadas</h3>
-              <p class="small-note mb-0">Registre vendas e PDV e acompanhe faturamento em tempo real.</p>
+              <p class="small-note mb-0">
+                Registre vendas e PDV e acompanhe faturamento em tempo real.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-wallet2"></i></div>
               <h3 class="h5 fw-bold">Caixa e financeiro</h3>
-              <p class="small-note mb-0">Pagamentos, recebimentos, saldo e contas a pagar/receber centralizados.</p>
+              <p class="small-note mb-0">
+                Pagamentos, recebimentos, saldo e contas a pagar/receber
+                centralizados.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-graph-up-arrow"></i></div>
               <h3 class="h5 fw-bold">Custos e lucratividade</h3>
-              <p class="small-note mb-0">Precificação, margem, markup e DRE para saber para onde o dinheiro vai.</p>
+              <p class="small-note mb-0">
+                Precificação, margem, markup e DRE para saber para onde o
+                dinheiro vai.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-speedometer2"></i></div>
               <h3 class="h5 fw-bold">Indicadores visuais</h3>
-              <p class="small-note mb-0">Dashboard com Pareto, ABC e exportação — desempenho em segundos.</p>
+              <p class="small-note mb-0">
+                Dashboard com Pareto, ABC e exportação — desempenho em segundos.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="how-item">
               <div class="icon-wrap"><i class="bi bi-shield-lock"></i></div>
               <h3 class="h5 fw-bold">Segurança e auditoria</h3>
-              <p class="small-note mb-0">Usuários, perfis, logs e regras para manter a operação íntegra.</p>
+              <p class="small-note mb-0">
+                Usuários, perfis, logs e regras para manter a operação íntegra.
+              </p>
             </div>
           </div>
         </div>
@@ -876,14 +998,20 @@
         <div class="text-center mb-5">
           <h2 class="section-title">Veja o sistema em ação</h2>
           <p class="soft-on-dark lead mb-0 mx-auto" style="max-width: 36rem">
-            Painéis reais, rápidos de escanear — ideal para segurar atenção na página.
+            Painéis reais, rápidos de escanear — ideal para segurar atenção na
+            página.
           </p>
         </div>
 
         <div class="dashboard-hero-img mb-4 mb-lg-5">
-          <img src="assets/dashboard.png" alt="Painel com visão geral do negócio — Seu Gerente Digital" />
+          <img
+            src="assets/dashboard.png"
+            alt="Painel com visão geral do negócio — Seu Gerente Digital"
+          />
         </div>
-        <p class="text-center soft-on-dark small mb-4">Painel com visão geral do negócio — saldo, faturamento e indicadores.</p>
+        <p class="text-center soft-on-dark small mb-4">
+          Painel com visão geral do negócio — saldo, faturamento e indicadores.
+        </p>
 
         <div class="row g-4">
           <div class="col-md-4">
@@ -894,10 +1022,15 @@
               data-title="Estoque em tempo real"
               data-img="assets/estoque.png"
             >
-              <img src="assets/estoque.png" alt="Controle de produtos e estoque em tempo real" />
+              <img
+                src="assets/estoque.png"
+                alt="Controle de produtos e estoque em tempo real"
+              />
               <div class="shot-meta">
                 <p class="shot-title">Estoque em tempo real</p>
-                <p class="shot-desc">Entradas, saídas e posição por SKU com valor projetado.</p>
+                <p class="shot-desc">
+                  Entradas, saídas e posição por SKU com valor projetado.
+                </p>
               </div>
             </div>
           </div>
@@ -909,10 +1042,15 @@
               data-title="Contas a pagar"
               data-img="assets/contas-a-pagar.png"
             >
-              <img src="assets/contas-a-pagar.png" alt="Caixa e movimentações centralizadas" />
+              <img
+                src="assets/contas-a-pagar.png"
+                alt="Caixa e movimentações centralizadas"
+              />
               <div class="shot-meta">
                 <p class="shot-title">Caixa e contas centralizadas</p>
-                <p class="shot-desc">Pagamentos, status e recorrências organizados.</p>
+                <p class="shot-desc">
+                  Pagamentos, status e recorrências organizados.
+                </p>
               </div>
             </div>
           </div>
@@ -924,10 +1062,15 @@
               data-title="DRE (Demonstrativo de Resultado)"
               data-img="assets/dre.png"
             >
-              <img src="assets/dre.png" alt="Relatórios para decisões mais seguras" />
+              <img
+                src="assets/dre.png"
+                alt="Relatórios para decisões mais seguras"
+              />
               <div class="shot-meta">
                 <p class="shot-title">Relatórios e resultado</p>
-                <p class="shot-desc">DRE, CMV e taxas para decidir com números.</p>
+                <p class="shot-desc">
+                  DRE, CMV e taxas para decidir com números.
+                </p>
               </div>
             </div>
           </div>
@@ -938,11 +1081,18 @@
             <source src="assets/animation.webm" type="video/webm" />
           </video>
         </div>
-        <p class="text-center soft-on-dark small mt-3 mb-0">Prévia em movimento do ecossistema — clique nas imagens acima para ampliar.</p>
+        <p class="text-center soft-on-dark small mt-3 mb-0">
+          Prévia em movimento do ecossistema — clique nas imagens acima para
+          ampliar.
+        </p>
 
         <div class="d-flex flex-wrap justify-content-center gap-3 mt-5">
-          <a class="btn btn-cta btn-lg px-4" href="#lead"><i class="bi bi-send me-2"></i>Quero a demo</a>
-          <a class="btn btn-outline-light2 btn-lg px-4" href="#oferta"><i class="bi bi-tags me-2"></i>Ver oferta</a>
+          <a class="btn btn-cta btn-lg px-4" href="#lead"
+            ><i class="bi bi-send me-2"></i>Quero a demo</a
+          >
+          <a class="btn btn-outline-light2 btn-lg px-4" href="#oferta"
+            ><i class="bi bi-tags me-2"></i>Ver oferta</a
+          >
         </div>
       </div>
     </section>
@@ -952,28 +1102,36 @@
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title">O que muda na prática</h2>
-          <p class="soft lead mb-0">Não é só função — é o que você sente no dia a dia.</p>
+          <p class="soft lead mb-0">
+            Não é só função — é o que você sente no dia a dia.
+          </p>
         </div>
         <div class="row g-4">
           <div class="col-md-6 col-lg-4">
             <div class="card-benefit">
               <i class="bi bi-brightness-high d-block mb-2"></i>
               <div class="fw-bold">Mais clareza no dia a dia</div>
-              <p class="small-note mb-0 mt-2">Um lugar só para ver o que importa.</p>
+              <p class="small-note mb-0 mt-2">
+                Um lugar só para ver o que importa.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-benefit">
               <i class="bi bi-check2-all d-block mb-2"></i>
               <div class="fw-bold">Menos erros e retrabalho</div>
-              <p class="small-note mb-0 mt-2">Operação padronizada e rastreável.</p>
+              <p class="small-note mb-0 mt-2">
+                Operação padronizada e rastreável.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="card-benefit">
               <i class="bi bi-currency-dollar d-block mb-2"></i>
               <div class="fw-bold">Mais controle sobre o dinheiro</div>
-              <p class="small-note mb-0 mt-2">Caixa, custos e lucro visíveis.</p>
+              <p class="small-note mb-0 mt-2">
+                Caixa, custos e lucro visíveis.
+              </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
@@ -1005,8 +1163,13 @@
     <section id="depoimento" class="section bg-ice">
       <div class="container">
         <div class="testimonial-card text-center">
-          <blockquote class="fs-5 fw-medium mb-4" style="color: var(--slate); line-height: 1.55">
-            “Antes, eu me perdia entre estoque, vendas e contas. Hoje consigo enxergar o negócio com muito mais clareza e tomar decisões com segurança.”
+          <blockquote
+            class="fs-5 fw-medium mb-4"
+            style="color: var(--slate); line-height: 1.55"
+          >
+            “Antes, eu me perdia entre estoque, vendas e contas. Hoje consigo
+            enxergar o negócio com muito mais clareza e tomar decisões com
+            segurança.”
           </blockquote>
           <div class="fw-bold">Cliente do Seu Gerente Digital</div>
           <div class="small-note">Empresário / comerciante</div>
@@ -1014,21 +1177,30 @@
         <div class="row g-3 mt-5 text-center">
           <div class="col-md-4">
             <div class="how-item h-100">
-              <i class="bi bi-person-badge fs-4 d-block mb-2" style="color: var(--purple)"></i>
+              <i
+                class="bi bi-person-badge fs-4 d-block mb-2"
+                style="color: var(--purple)"
+              ></i>
               <div class="fw-bold small">Gestão de usuários</div>
               <p class="small-note mb-0">Perfis admin e operador.</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="how-item h-100">
-              <i class="bi bi-journal-text fs-4 d-block mb-2" style="color: var(--purple)"></i>
+              <i
+                class="bi bi-journal-text fs-4 d-block mb-2"
+                style="color: var(--purple)"
+              ></i>
               <div class="fw-bold small">Auditoria e logs</div>
               <p class="small-note mb-0">Rastreio de alterações na operação.</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="how-item h-100">
-              <i class="bi bi-shield-exclamation fs-4 d-block mb-2" style="color: var(--purple)"></i>
+              <i
+                class="bi bi-shield-exclamation fs-4 d-block mb-2"
+                style="color: var(--purple)"
+              ></i>
               <div class="fw-bold small">Proteções</div>
               <p class="small-note mb-0">Integridade de cadastros e regras.</p>
             </div>
@@ -1040,8 +1212,12 @@
     <!-- PARA QUEM É -->
     <section id="para-quem" class="section bg-soft">
       <div class="container text-center">
-        <h2 class="section-title mb-3">Ideal para negócios que querem sair do improviso</h2>
-        <p class="soft lead mb-5">Se você se identifica com a lista, a conversa vale a pena.</p>
+        <h2 class="section-title mb-3">
+          Ideal para negócios que querem sair do improviso
+        </h2>
+        <p class="soft lead mb-5">
+          Se você se identifica com a lista, a conversa vale a pena.
+        </p>
         <div class="d-flex flex-wrap justify-content-center">
           <span class="audience-pill">Lojas e varejo</span>
           <span class="audience-pill">Pequenos comércios</span>
@@ -1061,13 +1237,18 @@
       <div class="container">
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-6">
-            <h2 class="section-title">Tenha uma gestão mais profissional sem complicação</h2>
+            <h2 class="section-title">
+              Tenha uma gestão mais profissional sem complicação
+            </h2>
             <p class="soft lead mt-3">
-              Um sistema pensado para quem precisa controlar melhor a operação, organizar o financeiro e crescer com mais segurança.
+              Um sistema pensado para quem precisa controlar melhor a operação,
+              organizar o financeiro e crescer com mais segurança.
             </p>
 
             <div class="d-flex flex-wrap gap-3 mt-4 mb-4">
-              <a class="btn btn-cta btn-lg px-4" href="#lead"><i class="bi bi-chat-dots me-2"></i>Quero saber mais</a>
+              <a class="btn btn-cta btn-lg px-4" href="#lead"
+                ><i class="bi bi-chat-dots me-2"></i>Quero saber mais</a
+              >
               <a
                 class="btn btn-outline-slate btn-lg px-4"
                 target="_blank"
@@ -1078,33 +1259,51 @@
             </div>
 
             <div class="price mt-3">
-              <span class="tag"><i class="bi bi-tags"></i> Valores promocionais</span>
+              <span class="tag"
+                ><i class="bi bi-tags"></i> Valores promocionais</span
+              >
               <h3 class="fw-bold mt-3 mb-2">Implantação do sistema</h3>
               <div class="mb-1">
-                <span class="text-decoration-line-through soft me-2">de R$ 2.500,00</span>
+                <span class="text-decoration-line-through soft me-2"
+                  >de R$ 2.500,00</span
+                >
               </div>
               <div class="display-6 fw-bold" style="color: var(--purple)">
                 R$ 499,50
               </div>
               <div class="soft">pagamento único</div>
-              <p class="small-note mt-2 mb-0 fw-semibold" style="color: var(--emerald)">
-                <i class="bi bi-check-circle me-1"></i> Não existe outro sistema profissional neste preço!
+              <p
+                class="small-note mt-2 mb-0 fw-semibold"
+                style="color: var(--emerald)"
+              >
+                <i class="bi bi-check-circle me-1"></i> Não existe outro sistema
+                profissional neste preço!
               </p>
 
               <div class="divider"></div>
 
               <h4 class="fw-bold mb-2">Manutenção e atualizações</h4>
               <div class="mb-1">
-                <span class="text-decoration-line-through soft me-2">de R$ 295,90</span>
+                <span class="text-decoration-line-through soft me-2"
+                  >de R$ 295,90</span
+                >
               </div>
               <div class="fs-2 fw-bold">
                 R$ 149,50<span class="fs-6">/mês</span>
               </div>
               <div class="soft">atualizações + suporte</div>
 
-              <div class="mt-3 p-3 rounded-3" style="background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(124, 58, 237, 0.2)">
+              <div
+                class="mt-3 p-3 rounded-3"
+                style="
+                  background: rgba(124, 58, 237, 0.08);
+                  border: 1px solid rgba(124, 58, 237, 0.2);
+                "
+              >
                 <div class="small-note mb-0">
-                  <i class="bi bi-gift me-1" style="color: var(--purple)"></i> <strong>Incluído sem custo adicional:</strong> Contas a receber e mais índices no dashboard.
+                  <i class="bi bi-gift me-1" style="color: var(--purple)"></i>
+                  <strong>Incluído sem custo adicional:</strong> Contas a
+                  receber e mais índices no dashboard.
                 </div>
               </div>
 
@@ -1115,7 +1314,9 @@
                 <li>Roadmap de evolução (com base no uso dos clientes)</li>
               </ul>
               <p class="small-note mt-3 mb-0">
-                <i class="bi bi-arrow-counterclockwise me-1"></i> Reembolso: o cliente pode pedir o reembolso em até 7 dias. Após esse prazo não há devolução.
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reembolso: o
+                cliente pode pedir o reembolso em até 7 dias. Após esse prazo
+                não há devolução.
               </p>
             </div>
 
@@ -1131,12 +1332,15 @@
                 rel="noopener"
                 href="https://wa.me/5531973663441?text=Olá!%20Quero%20a%20oferta%20do%20Seu%20Gerente%20Digital%20(implantação%20R$%20499,50%20+%20R$%20149,50/mês).%20Podemos%20agendar%20uma%20apresentação%3F"
               >
-                <i class="bi bi-whatsapp me-1 text-success"></i> Falar no WhatsApp
+                <i class="bi bi-whatsapp me-1 text-success"></i> Falar no
+                WhatsApp
               </a>
             </div>
 
             <p class="small-note mt-3 mb-0">
-              Novas funcionalidades ou personalizações fora do escopo do sistema contratado são avaliadas e orçadas à parte, de forma transparente e prévia à execução.
+              Novas funcionalidades ou personalizações fora do escopo do sistema
+              contratado são avaliadas e orçadas à parte, de forma transparente
+              e prévia à execução.
             </p>
           </div>
 
@@ -1329,12 +1533,18 @@
     <!-- CTA FINAL -->
     <section id="cta-final" class="cta-final">
       <div class="container text-center">
-        <h2 class="display-6 fw-bold text-white mb-3">Pronto para profissionalizar sua gestão?</h2>
+        <h2 class="display-6 fw-bold text-white mb-3">
+          Pronto para profissionalizar sua gestão?
+        </h2>
         <p class="soft-on-dark lead mb-4 mx-auto" style="max-width: 32rem">
-          Saiba mais agora e veja como organizar estoque, vendas e financeiro sem complicação.
+          Saiba mais agora e veja como organizar estoque, vendas e financeiro
+          sem complicação.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a class="btn btn-cta btn-lg px-5" href="#lead"><i class="bi bi-lightning-charge-fill me-2"></i>Quero a demo e proposta</a>
+          <a class="btn btn-cta btn-lg px-5" href="#lead"
+            ><i class="bi bi-lightning-charge-fill me-2"></i>Quero a demo e
+            proposta</a
+          >
           <a
             class="btn btn-outline-light2 btn-lg px-4"
             target="_blank"
@@ -1374,131 +1584,230 @@
               data-bs-parent="#accordionFAQ"
             >
               <div class="accordion-body small-note">
-                Micro, pequenas e médias empresas de varejo e serviços que precisam integrar estoque, vendas, caixa e financeiro — sem depender de planilhas soltas.
+                Micro, pequenas e médias empresas de varejo e serviços que
+                precisam integrar estoque, vendas, caixa e financeiro — sem
+                depender de planilhas soltas.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq2"
+              >
                 Posso controlar estoque e caixa no mesmo lugar?
               </button>
             </h2>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq2"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Sim. Compras, vendas, movimentações de caixa e estoque conversam no mesmo sistema, com dashboards e relatórios unificados.
+                Sim. Compras, vendas, movimentações de caixa e estoque conversam
+                no mesmo sistema, com dashboards e relatórios unificados.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq3"
+              >
                 É fácil de usar?
               </button>
             </h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq3"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Interface pensada para o dia a dia da loja: fluxos claros para PDV, caixa e cadastros. Na implantação há treinamento inicial para sua equipe.
+                Interface pensada para o dia a dia da loja: fluxos claros para
+                PDV, caixa e cadastros. Na implantação há treinamento inicial
+                para sua equipe.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq4"
+              >
                 Posso adaptar ao meu negócio?
               </button>
             </h2>
-            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq4"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Você configura produtos, categorias, taxas, usuários e parâmetros do estabelecimento. Demandas fora do escopo padrão são avaliadas e orçadas à parte, com transparência.
+                Você configura produtos, categorias, taxas, usuários e
+                parâmetros do estabelecimento. Demandas fora do escopo padrão
+                são avaliadas e orçadas à parte, com transparência.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq5"
+              >
                 Existe suporte?
               </button>
             </h2>
-            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq5"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Sim. A mensalidade de R$ 149,50 inclui suporte técnico para dúvidas e ajustes de uso, além de atualizações e correções contínuas.
+                Sim. A mensalidade de R$ 149,50 inclui suporte técnico para
+                dúvidas e ajustes de uso, além de atualizações e correções
+                contínuas.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq6"
+              >
                 O que inclui a implantação de R$ 499,50?
               </button>
             </h2>
-            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq6"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Configuração base, implantação e treinamento inicial. Incluídos sem custo adicional: contas a receber e mais índices no dashboard.
+                Configuração base, implantação e treinamento inicial. Incluídos
+                sem custo adicional: contas a receber e mais índices no
+                dashboard.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq7"
+              >
                 O que inclui a mensalidade de R$ 149,50?
               </button>
             </h2>
-            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq7"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Manutenção, atualizações, melhorias e suporte — o que mantém o sistema sempre atualizado e acompanhado.
+                Manutenção, atualizações, melhorias e suporte — o que mantém o
+                sistema sempre atualizado e acompanhado.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq8"
+              >
                 Dá para exportar relatórios?
               </button>
             </h2>
-            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq8"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Sim: PDF, CSV e JSON, além de relatórios de estoque e logs, conforme o módulo.
+                Sim: PDF, CSV e JSON, além de relatórios de estoque e logs,
+                conforme o módulo.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq9"
+              >
                 E se eu precisar de funcionalidade nova ou personalizada?
               </button>
             </h2>
-            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq9"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                O valor da implantação e da mensalidade cobre o escopo desta página. Personalizações extras são orçadas com transparência antes da execução.
+                O valor da implantação e da mensalidade cobre o escopo desta
+                página. Personalizações extras são orçadas com transparência
+                antes da execução.
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq10"
+              >
                 Como funciona o reembolso?
               </button>
             </h2>
-            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+            <div
+              id="faq10"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFAQ"
+            >
               <div class="accordion-body small-note">
-                Você pode solicitar reembolso em até 7 dias após a contratação. Após esse prazo não há devolução.
+                Você pode solicitar reembolso em até 7 dias após a contratação.
+                Após esse prazo não há devolução.
               </div>
             </div>
           </div>
         </div>
 
         <div class="text-center mt-5">
-          <a class="btn btn-cta btn-lg px-5" href="#lead"><i class="bi bi-lightning-charge me-1"></i>Quero a demo</a>
+          <a class="btn btn-cta btn-lg px-5" href="#lead"
+            ><i class="bi bi-lightning-charge me-1"></i>Quero a demo</a
+          >
         </div>
       </div>
     </section>
@@ -1510,7 +1819,14 @@
           class="d-flex flex-wrap justify-content-between align-items-center gap-2"
         >
           <div>
-            <div class="fw-bold"> <img src="assets/favicon.jpg" alt="Logo" width="32" height="32" />&nbsp; Seu Gerente Digital </div>
+            <div class="fw-bold">
+              <img
+                src="assets/favicon.jpg"
+                alt="Logo"
+                width="32"
+                height="32"
+              />&nbsp; Seu Gerente Digital
+            </div>
             <div class="small-note">
               Controle de estoque e vendas com caixa, precificação e
               indicadores.
@@ -1596,7 +1912,9 @@
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title fw-bold" id="videoModalTitle">Demonstração</h5>
+            <h5 class="modal-title fw-bold" id="videoModalTitle">
+              Demonstração
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -1616,10 +1934,7 @@
                 loop
                 preload="metadata"
               >
-                <source
-                  src="assets/seugerentedigital2.mp4"
-                  type="video/mp4"
-                />
+                <source src="assets/seugerentedigital2.mp4" type="video/mp4" />
                 Seu navegador não suporta a tag de vídeo.
               </video>
             </div>
@@ -1806,7 +2121,9 @@
         }
 
         // Pequeno delay para garantir que a página terminou de renderizar.
-        window.addEventListener("load", () => setTimeout(() => modal.show(), 250));
+        window.addEventListener("load", () =>
+          setTimeout(() => modal.show(), 250),
+        );
       }
     </script>
   </body>
