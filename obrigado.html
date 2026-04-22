@@ -328,7 +328,7 @@
                 type="hidden"
                 name="_next"
                 id="form_next_url_contact"
-                value=""
+                value="https://saibamais.seugerentedigital.com/obrigado.html"
               />
               <input type="hidden" name="page_url" id="contact_page_url" value="" />
               <input type="hidden" name="timestamp" id="contact_timestamp" value="" />
@@ -388,12 +388,14 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
+      const OBRIGADO_PUBLIC =
+        "https://saibamais.seugerentedigital.com/obrigado.html";
       const nextPath = (() => {
-        const base =
-          window.location.origin +
-            window.location.pathname.replace(/\/[^/]*$/, "") ||
-          window.location.origin;
-        return base + (base.endsWith("/") ? "" : "/") + "obrigado.html";
+        try {
+          return new URL("obrigado.html", window.location.href).href;
+        } catch (e) {
+          return OBRIGADO_PUBLIC;
+        }
       })();
       const nextContact = document.getElementById("form_next_url_contact");
       if (nextContact) nextContact.value = nextPath;

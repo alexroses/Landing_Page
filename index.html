@@ -1561,9 +1561,9 @@
           >
         </div>
 
-        <div class="row g-4 align-items-stretch">
+        <div class="row g-4 align-items-start">
           <div class="col-lg-6">
-            <div class="box-trust h-100">
+            <div class="box-trust">
               <h3><i class="bi bi-shield-check me-1" style="color: var(--emerald)"></i>Segurança e confiança</h3>
               <p class="soft mb-0">
                 Seus <strong>dados e transações</strong> com práticas de
@@ -1652,7 +1652,12 @@
                 />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" id="form_next_url" value="" />
+                <input
+                  type="hidden"
+                  name="_next"
+                  id="form_next_url"
+                  value="https://saibamais.seugerentedigital.com/obrigado.html"
+                />
 
                 <!-- Tracking -->
                 <input type="hidden" name="utm_source" id="utm_source" />
@@ -2333,7 +2338,7 @@
                 type="hidden"
                 name="_next"
                 id="form_next_url_contact"
-                value=""
+                value="https://saibamais.seugerentedigital.com/obrigado.html"
               />
               <input type="hidden" name="page_url" id="contact_page_url" value="" />
               <input type="hidden" name="timestamp" id="contact_timestamp" value="" />
@@ -2393,13 +2398,15 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // FormSubmit: redirect após envio — lead e contato
+      // FormSubmit: após envio, redireciona para obrigado.html (URL absoluta https obrigatória)
+      const OBRIGADO_PUBLIC =
+        "https://saibamais.seugerentedigital.com/obrigado.html";
       const nextPath = (() => {
-        const base =
-          window.location.origin +
-            window.location.pathname.replace(/\/[^/]*$/, "") ||
-          window.location.origin;
-        return base + (base.endsWith("/") ? "" : "/") + "obrigado.html";
+        try {
+          return new URL("obrigado.html", window.location.href).href;
+        } catch (e) {
+          return OBRIGADO_PUBLIC;
+        }
       })();
       const nextInput = document.getElementById("form_next_url");
       if (nextInput) nextInput.value = nextPath;
