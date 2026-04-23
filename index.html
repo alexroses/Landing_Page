@@ -2398,16 +2398,36 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // FormSubmit: após envio, redireciona para obrigado.html (URL absoluta https obrigatória)
+      // Página "Thanks!" do FormSubmit: aparece no POST clássico (action em formsubmit.co).
+      // O campo _next devia redirecionar, mas o serviço muitas vezes ignora até o form estar
+      // 100% ativado, ou o POST direto mantém a URL do FormSubmit. Com JS, enviamos via
+      // /ajax/ e abrimos obrigado.html aqui, sem o utilizador sair do fluxo.
       const OBRIGADO_PUBLIC =
         "https://saibamais.seugerentedigital.com/obrigado.html";
-      const nextPath = (() => {
+      const resolveObrigadoUrl = () => {
         try {
           return new URL("obrigado.html", window.location.href).href;
         } catch (e) {
           return OBRIGADO_PUBLIC;
         }
-      })();
+      };
+      const nextPath = resolveObrigadoUrl();
+      const toFormSubmitAjaxUrl = (formAction) => {
+        const m = /https?:\/\/formsubmit\.co\/(.+)$/i.exec(
+          (formAction || "").trim()
+        );
+        if (!m) return null;
+        return "https://formsubmit.co/ajax/" + encodeURIComponent(m[1]);
+      };
+      const sendFormToFormSubmit = (form) => {
+        const ajax = toFormSubmitAjaxUrl(form.getAttribute("action"));
+        if (!ajax) return Promise.reject();
+        return fetch(ajax, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+      };
       const nextInput = document.getElementById("form_next_url");
       if (nextInput) nextInput.value = nextPath;
       const nextContact = document.getElementById("form_next_url_contact");
@@ -2435,7 +2455,7 @@
       if (cPage) cPage.value = window.location.href;
       if (cTs) cTs.value = new Date().toISOString();
 
-      // Formulário de contato (modal)
+      // Formulário de contato (modal) — envio por AJAX (evita a página padrão do FormSubmit)
       const contactForm = document.getElementById("contactForm");
       if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
@@ -2455,7 +2475,30 @@
             else em.classList.remove("is-invalid");
             if (!msgOk) m.classList.add("is-invalid");
             else m.classList.remove("is-invalid");
+            return;
           }
+          e.preventDefault();
+          const btn = contactForm.querySelector('[type="submit"]');
+          const prevHtml = btn && btn.innerHTML;
+          if (btn) {
+            btn.disabled = true;
+            btn.innerHTML =
+              '<i class="bi bi-hourglass-split me-1"></i>Enviando...';
+          }
+          sendFormToFormSubmit(contactForm)
+            .then((res) => {
+              if (!res.ok) throw new Error("fail");
+              window.location.assign(resolveObrigadoUrl());
+            })
+            .catch(function () {
+              if (btn) {
+                btn.disabled = false;
+                if (prevHtml) btn.innerHTML = prevHtml;
+              }
+              alert(
+                "Não foi possível enviar a mensagem agora. Tente de novo em instantes ou use o WhatsApp."
+              );
+            });
         });
         const cModal = document.getElementById("contactEmailModal");
         if (cModal) {
@@ -2484,7 +2527,7 @@
         });
       });
 
-      // Validação do formulário (sem quebrar o POST)
+      // Validação + envio via AJAX (evita a página "Thanks!" em formsubmit.co)
       const form = document.getElementById("leadForm");
       if (form) {
         form.addEventListener("submit", function (e) {
@@ -2520,8 +2563,30 @@
             else segmento.classList.remove("is-invalid");
             if (!tamanho.value) tamanho.classList.add("is-invalid");
             else tamanho.classList.remove("is-invalid");
+            return;
           }
-          // Se estiver tudo OK, NÃO faz preventDefault -> deixa o POST acontecer
+          e.preventDefault();
+          const leadBtn = form.querySelector('[type="submit"]');
+          const leadPrev = leadBtn && leadBtn.innerHTML;
+          if (leadBtn) {
+            leadBtn.disabled = true;
+            leadBtn.innerHTML =
+              '<i class="bi bi-hourglass-split me-1"></i>Enviando...';
+          }
+          sendFormToFormSubmit(form)
+            .then((res) => {
+              if (!res.ok) throw new Error("fail");
+              window.location.assign(resolveObrigadoUrl());
+            })
+            .catch(function () {
+              if (leadBtn) {
+                leadBtn.disabled = false;
+                if (leadPrev) leadBtn.innerHTML = leadPrev;
+              }
+              alert(
+                "Não foi possível enviar agora. Tente de novo em instantes ou use o WhatsApp."
+              );
+            });
         });
       }
 

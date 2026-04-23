@@ -390,13 +390,30 @@
 
       const OBRIGADO_PUBLIC =
         "https://saibamais.seugerentedigital.com/obrigado.html";
-      const nextPath = (() => {
+      const resolveObrigadoUrl = function () {
         try {
           return new URL("obrigado.html", window.location.href).href;
         } catch (e) {
           return OBRIGADO_PUBLIC;
         }
-      })();
+      };
+      const nextPath = resolveObrigadoUrl();
+      const toFormSubmitAjaxUrl = function (formAction) {
+        const m = /https?:\/\/formsubmit\.co\/(.+)$/i.exec(
+          (formAction || "").trim()
+        );
+        if (!m) return null;
+        return "https://formsubmit.co/ajax/" + encodeURIComponent(m[1]);
+      };
+      const sendFormToFormSubmit = function (form) {
+        const ajax = toFormSubmitAjaxUrl(form.getAttribute("action"));
+        if (!ajax) return Promise.reject();
+        return fetch(ajax, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+      };
       const nextContact = document.getElementById("form_next_url_contact");
       if (nextContact) nextContact.value = nextPath;
 
@@ -423,7 +440,30 @@
             else em.classList.remove("is-invalid");
             if (!msgOk) m.classList.add("is-invalid");
             else m.classList.remove("is-invalid");
+            return;
           }
+          e.preventDefault();
+          const btn = contactForm.querySelector('[type="submit"]');
+          const prevH = btn && btn.innerHTML;
+          if (btn) {
+            btn.disabled = true;
+            btn.innerHTML =
+              '<i class="bi bi-hourglass-split me-1" aria-hidden="true"></i>Enviando...';
+          }
+          sendFormToFormSubmit(contactForm)
+            .then(function (res) {
+              if (!res.ok) throw new Error("fail");
+              window.location.assign(resolveObrigadoUrl());
+            })
+            .catch(function () {
+              if (btn) {
+                btn.disabled = false;
+                if (prevH) btn.innerHTML = prevH;
+              }
+              alert(
+                "Não foi possível enviar a mensagem agora. Tente de novo em instantes."
+              );
+            });
         });
         const cModal = document.getElementById("contactEmailModal");
         if (cModal) {
